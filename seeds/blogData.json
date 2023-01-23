@@ -1,17 +1,14 @@
 [
   {
-    "name": "Music Near Me",
-    "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-    "needed_funding": 5000
+    "post_title": "The end of the Twitter app era",
+    "contents": "It’s incredible how third-party Twitter clients had been able to survive Twitter’s ups and downs over the years, including its various API changes and constantly fluctuating business objectives and policies, only to be unceremoniously killed in 2023 by the whims of a billionaire. This week, in what has been one of the more depressing moments in tech history, longtime Twitter apps like IconFactory’s Twitterific, Tapbot’s Tweetbot and others like Birdie, Fenix, Echofon and many more were unceremoniously cut off from being able to access Twitter’s API and serve their customer base."
   },
   {
-    "name": "The Ultimate Tech Quiz",
-    "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
-    "needed_funding": 10000
+    "post_title": "Instagram adds a “Quiet Mode”",
+    "contents": "Instagram announced this week it’s expanding its selection of time management tools with the launch of a new feature called “Quiet Mode.” The feature aims to reduce users’ anxiety about taking time off from the app by silencing incoming notifications, auto-replying to DMs and setting your status to “In Quiet Mode” to inform friends that you’re not active on the app at present. The company said it will prompt teen users to enable the feature if they’re using the app late at night."
   },
   {
-    "name": "Roll 'Em Up",
-    "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
-    "needed_funding": 800
+    "post_title": "Google Play Store’s missing app changelogs are back on the web",
+    "contents": "App updates are no longer as interesting as before. The best Android apps nowadays rarely receive significant new features, with updates only being about bug fixes and background changes. But this does not mean changelogs are not important. They still provide useful insight into the small but useful additions the app developer has introduced. At the beginning of 2023 though, Google removed app changelogs from the Play Store on the web. Thankfully, a Play Store team member inside the company confirmed this was an unintentional move, and app changelogs should be back soon on the web."
   }
 ]
