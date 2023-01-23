@@ -11,19 +11,26 @@ const newFormHandler = async (event) => {
 
   if (title && contents) {
     let response;
-    let input = JSON.stringify({ post_title, contents: info });
+    let input = { post_title, contents: info };
 
     if (post_id === 0) {
-      console.log(input);
       response = await fetch(`/api/blogs`, {
         method: "POST",
-        body: input,
+        body: JSON.stringify(input),
         headers: {
           "Content-Type": "application/json",
         },
       });
     } else {
-      console.log(post_id);
+      let updated_post = { ...input, id: post_id };
+
+      response = await fetch(`/api/blogs`, {
+        method: "PUT",
+        body: JSON.stringify(updated_post),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
     }
 
     if (response.ok) {
