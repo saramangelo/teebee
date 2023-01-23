@@ -38,6 +38,16 @@ const delButtonHandler = async (event) => {
   }
 };
 
+const editButtonHandler = async (event) => {
+  event.preventDefault();
+  if (event.target.hasAttribute("data-id")) {
+    const id = event.target.getAttribute("data-id");
+    console.log(id);
+};
+}
+
+
+
 document
   .querySelector(".new-blog-form")
   .addEventListener("submit", newFormHandler);
@@ -45,3 +55,7 @@ document
 document
   .querySelector(".delete-btn")
   .addEventListener("click", delButtonHandler);
+
+  document
+  .querySelector(".edit-btn")
+  .addEventListener("click", editButtonHandler);
