@@ -42,8 +42,11 @@ const editButtonHandler = async (event) => {
   event.preventDefault();
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
-    console.log(id);
-};
+
+    const response = await fetch(`/api/blogs/${id}`);
+    const data = await response.json();
+    console.log(data);
+  }
 }
 
 
