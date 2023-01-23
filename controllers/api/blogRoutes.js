@@ -17,14 +17,11 @@ router.post('/', withAuth, async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    console.log(req.params);
-    res.status(200).json(req.params);
-    // const blogData = await Blog.findByPk({
-    //   where: {
-    //     id: req.params.id,
-    //   }
-    // })
-    // console.log(blogData);
+    const blogData = await Blog.findOne({ where: { id: req.params.id }
+    });
+    const blog = blogData.get({ plain: true });
+
+    console.log(blog);
   // res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
