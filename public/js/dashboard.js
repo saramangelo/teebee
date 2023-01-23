@@ -1,18 +1,30 @@
+const title = document.querySelector("#blog-title");
+const contents = document.querySelector("#blog-contents");
+
+let post_id = 0;
+
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const title = document.querySelector("#blog-title").value.trim();
-  const contents = document.querySelector("#blog-contents").value.trim();
+  let post_title = title.value.trim();
+  let info = contents.value.trim();
 
   if (title && contents) {
-    let input = JSON.stringify({ post_title: title, contents });
-    const response = await fetch(`/api/blogs`, {
-      method: "POST",
-      body: input,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    let response;
+    let input = JSON.stringify({ post_title, contents: info });
+
+    if (post_id === 0) {
+      console.log(input);
+      response = await fetch(`/api/blogs`, {
+        method: "POST",
+        body: input,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    } else {
+      console.log(post_id);
+    }
 
     if (response.ok) {
       document.location.replace("/dashboard");
@@ -46,10 +58,12 @@ const editButtonHandler = async (event) => {
     const response = await fetch(`/api/blogs/${id}`);
     const data = await response.json();
     console.log(data);
+
+    title.value = data.post_title;
+    contents.value = data.contents;
+    post_id = data.id;
   }
-}
-
-
+};
 
 document
   .querySelector(".new-blog-form")
@@ -59,6 +73,6 @@ document
   .querySelector(".delete-btn")
   .addEventListener("click", delButtonHandler);
 
-  document
+document
   .querySelector(".edit-btn")
   .addEventListener("click", editButtonHandler);
