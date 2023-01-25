@@ -59,6 +59,8 @@ const delButtonHandler = async (event) => {
 
 const editButtonHandler = async (event) => {
   event.preventDefault();
+  if(event.target.matches(".edit-btn")) {
+
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
 
@@ -70,6 +72,7 @@ const editButtonHandler = async (event) => {
     contents.value = data.contents;
     post_id = data.id;
   }
+}
 };
 
 document
@@ -80,6 +83,4 @@ document
   .querySelector(".delete-btn")
   .addEventListener("click", delButtonHandler);
 
-document
-  .querySelector(".edit-btn")
-  .addEventListener("click", editButtonHandler);
+document.addEventListener("click", editButtonHandler);
