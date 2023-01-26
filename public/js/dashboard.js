@@ -71,7 +71,10 @@ const editButtonHandler = async (event) => {
     title.value = data.post_title;
     contents.value = data.contents;
     post_id = data.id;
+
+    
   }
+  
 }
 };
 
