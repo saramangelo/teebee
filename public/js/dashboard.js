@@ -2,6 +2,7 @@ const title = document.querySelector("#blog-title");
 const contents = document.querySelector("#blog-contents");
 
 let post_id = 0;
+console.log(post_id);
 
 const newFormHandler = async (event) => {
   event.preventDefault();
@@ -59,28 +60,22 @@ const delButtonHandler = async (event) => {
 
 const editButtonHandler = async (event) => {
   event.preventDefault();
-  if(event.target.matches(".edit-btn")) {
+  if (event.target.matches(".edit-btn")) {
+    if (event.target.hasAttribute("data-id")) {
+      const id = event.target.getAttribute("data-id");
 
-  if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute("data-id");
+      const response = await fetch(`/api/blogs/${id}`);
+      const data = await response.json();
+      console.log(data);
 
-    const response = await fetch(`/api/blogs/${id}`);
-    const data = await response.json();
-    console.log(data);
-
-    title.value = data.post_title;
-    contents.value = data.contents;
-    post_id = data.id;
-
-    
+      title.value = data.post_title;
+      contents.value = data.contents;
+      post_id = data.id;
+    }
   }
-  
-}
 };
 
-document
-  .querySelector(".new-blog-form")
-  .addEventListener("submit", newFormHandler);
+document.querySelector(".submitBtn").addEventListener("click", newFormHandler);
 
 document
   .querySelector(".delete-btn")
