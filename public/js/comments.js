@@ -1,6 +1,6 @@
 const submitComment = async () => {
   const comments = document.querySelector('#comment').value.trim();
-  const blog_id = document.querySelector('#opportunity');
+  const blog_id = document.querySelector('#blog');
   let blogId = blog_id.getAttribute('data-id');
   console.log(blogId);
   if (comment) {
@@ -21,7 +21,7 @@ const submitComment = async () => {
 
     if (response.ok) {
 
-      document.location.replace(`/opportunity/${blogId}`);
+      document.location.replace(`/blog/${blogId}`);
     } else {
     }
   }

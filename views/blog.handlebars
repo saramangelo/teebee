@@ -1,13 +1,26 @@
 <div class="text-center">
   <h2>{{name}}</h2>
+    <div id="blog" data-id="{{id}}"></div>
   <p>{{contents}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
 
-{{#each comments as |comment|}}
-  <p>{{comment.comments}}</p>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1"></label>
+    <textarea
+      placeholder="Type your comment here..."
+      class="form-control comment"
+      id="comment"
+      rows="3"
+    ></textarea>
+  </div>
+  <br />
+
+  {{#each comments as |comment|}}
+    <p>{{comment.comments}}</p>
   {{/each}}
   <p>
-    <button class='btn btn-dark'>
+    <button class="btn btn-dark">
       Comment on this blog!
     </button>
+  </p>
 </div>
