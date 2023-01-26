@@ -43,6 +43,7 @@ const newFormHandler = async (event) => {
 };
 
 const delButtonHandler = async (event) => {
+  if (event.target.matches(".delete-btn")) {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
 
@@ -56,6 +57,7 @@ const delButtonHandler = async (event) => {
       alert("Failed to delete blog");
     }
   }
+}
 };
 
 const editButtonHandler = async (event) => {
@@ -77,8 +79,7 @@ const editButtonHandler = async (event) => {
 
 document.querySelector(".submitBtn").addEventListener("click", newFormHandler);
 
-document
-  .querySelector(".delete-btn")
+document.querySelector('.blog-list')
   .addEventListener("click", delButtonHandler);
 
-document.addEventListener("click", editButtonHandler);
+document.querySelector('.blog-list').addEventListener("click", editButtonHandler);
