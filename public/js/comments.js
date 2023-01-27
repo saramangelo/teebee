@@ -1,5 +1,6 @@
 const submitComment = async () => {
 
+console.log('clicked')
   const comments = document.querySelector('#comment').value.trim();
   const blog_id = document.querySelector('#blog');
   let blogId = blog_id.getAttribute('data-id');
@@ -23,7 +24,7 @@ const submitComment = async () => {
     });
 
     if (response.ok) {
-
+console.log("okay")
       document.location.replace(`/blog/${blogId}`);
     } else {
       alert('Failed to add comment');
@@ -31,4 +32,4 @@ const submitComment = async () => {
   }
 };
 
-document.querySelector('button').addEventListener('click', submitComment);
+document.querySelector('#comment-submit-button').addEventListener('click', submitComment);

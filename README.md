@@ -7,16 +7,20 @@ Teebee is a CMS-style blog site, where developers can publish their blog posts a
 ## Screenshot
 ![]()
   
-## Table of Contents (Optional)
+## Table of Contents
     
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
-- [Features](#features)
-- [How to Contribute](#how-to-contribute)
-- [Tests](#tests)
-- [Questions](#questions)
+- [teebee](#teebee)
+  - [Description](#description)
+  - [Screenshot](#screenshot)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Credits](#credits)
+  - [License](#license)
+  - [Features](#features)
+  - [How to Contribute](#how-to-contribute)
+  - [Tests](#tests)
+  - [Questions](#questions)
   
 ## Installation
 Clone the repository, run server on local host 3001.
@@ -78,14 +82,12 @@ Reach me at the links below with additional questions:
 
 WHEN I enter a comment and click on the submit button while signed in
 THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
-<!-- POST ROUTE? -->
 WHEN I click on the dashboard option in the navigation
 THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
 WHEN I click on the button to add a new blog post
 THEN I am prompted to enter both a title and contents for my blog post
 WHEN I click on the button to create a new blog post
 THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-<!-- NEED TO RENDER DASHBOARD -->
 WHEN I click on one of my existing posts in the dashboard
 THEN I am able to delete or update my post and taken back to an updated dashboard
 <!-- ADD DELETE AND PUT ROUTES -->

@@ -41,17 +41,10 @@ router.get("/blog/:id", async (req, res) => {
         {
           model: User,
           attributes: ["name"],
-
-          include: [
-            {
-              model: Comments,
-              include: [
-                {
-                  model: User,
-                },
-              ],
-            },
-          ],
+        },
+        {
+          model: Comments,
+          include: [{ model: User }],
         },
       ],
     });
