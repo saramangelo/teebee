@@ -1,13 +1,10 @@
 const User = require('./User');
 const Blog = require('./Blog');
 const Comments = require('./Comments');
-const UserBlog = require('./UserBlog');
 
-User.belongsToMany(Blog, {
-  through: {
-    model: UserBlog,
-    unique: false,
-  }
+User.hasMany(Blog, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
 });
 
 User.hasMany(Comments, {
@@ -15,20 +12,19 @@ User.hasMany(Comments, {
 });
 
 Blog.hasMany(Comments,{
-  foreignKey: 'comments_id',
-
+  foreignKey: 'blog_id',
 });
 
 Blog.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
 });
 
 Comments.belongsTo(User, {
-  foreignKey: 'user_id' 
+  foreignKey: 'user_id',
 });
 
 Comments.belongsTo(Blog, {
   foreignKey: 'blog_id',
-});
+})
 
-module.exports = { User, Blog, Comments, UserBlog };
+module.exports = { User, Blog, Comments };
