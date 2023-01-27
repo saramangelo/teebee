@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Blog, User, Comments } = require('../models');
 const withAuth = require('../utils/auth');
 
+// /homepage GET all blogs, render homepage hbs with serialized data
 router.get('/', async (req, res) => {
   try {
     // Get all blogs and JOIN with user data
@@ -13,7 +14,7 @@ router.get('/', async (req, res) => {
         },
         {
           model: Comments,
-          include: User,
+          include: [{model: User}],
         }
       ],
     });
@@ -32,6 +33,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// /blog/id GET one blog by id, render blog hbs with serialized blog data
 router.get('/blog/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
@@ -40,6 +42,10 @@ router.get('/blog/:id', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comments,
+          include: [{model: User}],
+        }
       ],
     });
 
@@ -54,6 +60,7 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
+// /dashboard GET one user data by id, render dashboard with serialized user data
 // Use withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
@@ -73,6 +80,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
