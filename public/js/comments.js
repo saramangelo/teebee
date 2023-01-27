@@ -1,10 +1,12 @@
 const submitComment = async () => {
+
   const comments = document.querySelector('#comment').value.trim();
   const blog_id = document.querySelector('#blog');
   let blogId = blog_id.getAttribute('data-id');
   console.log(blogId);
-  if (comment) {
-    console.log(comment);
+  console.log(comments)
+  if (comments) {
+    console.log(comments);
 
     let input = JSON.stringify({
       comments,
@@ -17,14 +19,16 @@ const submitComment = async () => {
       headers: {
         'Content-Type': 'application/json',
       },
+
     });
 
     if (response.ok) {
 
       document.location.replace(`/blog/${blogId}`);
     } else {
+      alert('Failed to add comment');
     }
   }
 };
 
-document.querySelector('.btn').addEventListener('click', submitComment);
+document.querySelector('button').addEventListener('click', submitComment);

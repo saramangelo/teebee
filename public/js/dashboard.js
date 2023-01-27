@@ -80,14 +80,17 @@ const editButtonHandler = async (event) => {
 };
 
 
-document.querySelector('.blog-link').addEventListener(function(){
-  window.location = this.find("a").attr("href"); 
-  return false;
-});
+
 
 document.querySelector(".submitBtn").addEventListener("click", newFormHandler);
 
-document.querySelector('.blog-list')
-  .addEventListener("click", delButtonHandler);
 
-document.querySelector('.blog-list').addEventListener("click", editButtonHandler);
+let edtBtn = document.querySelectorAll('.edit-btn')
+for (let i = 0; i < edtBtn.length; i++) {
+  edtBtn[i].addEventListener("click", editButtonHandler);
+};
+
+let delBtn = document.querySelectorAll('.delete-btn')
+for (let i = 0; i < delBtn.length; i++) {
+  delBtn[i].addEventListener("click", delButtonHandler);
+};
