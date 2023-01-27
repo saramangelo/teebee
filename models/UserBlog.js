@@ -35,4 +35,4 @@ UserBlog.init(
     }
   );
   
-  module.exports = UserShow;
+  module.exports = UserBlog;
