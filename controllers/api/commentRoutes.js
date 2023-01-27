@@ -18,27 +18,45 @@ router.post('/', async (req, res) => {
 });
 
 // Edit comments (PUT)
+// router.put("/:id", withAuth, async (req, res) => {
+//   try {
+//     const commentsData = await Comments.update({
+//       where: {
+//         id: req.params.id,
+//         user_id: req.session.user_id,
+//       },
+//     });
 
+//     if (!commentsData) {
+//       res.status(404).json({ message: "No comments found with this id!" });
+//       return;
+//     }
+
+//     res.status(200).json(commentsData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // Delete comments
-router.delete("/:id", withAuth, async (req, res) => {
-  try {
-    const commentsData = await Comments.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
+// router.delete("/:id", withAuth, async (req, res) => {
+//   try {
+//     const commentsData = await Comments.destroy({
+//       where: {
+//         id: req.params.id,
+//         user_id: req.session.user_id,
+//       },
+//     });
 
-    if (!commentsData) {
-      res.status(404).json({ message: "No comments found with this id!" });
-      return;
-    }
+//     if (!commentsData) {
+//       res.status(404).json({ message: "No comments found with this id!" });
+//       return;
+//     }
 
-    res.status(200).json(commentsData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.status(200).json(commentsData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;

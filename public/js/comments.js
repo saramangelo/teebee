@@ -29,56 +29,31 @@ const submitComment = async () => {
   }
 };
 
-document.querySelector('#comment-submit-button').addEventListener('click', submitComment);
+
 
 // create/edit/delete comments
 
-// const title = document.querySelector("#blog-title");
-// const contents = document.querySelector("#blog-contents");
+// const edtButtonHandler = async (event) => {
+//   if (event.target.matches(".edt-btn")) {
+//     console.log(event.target)
+//   if (event.target.hasAttribute("data-id")) {
+//     const id = event.target.getAttribute("data-id");
 
-// let post_id = 0;
-// console.log(post_id);
-
-// const newFormHandler = async (event) => {
-//   event.preventDefault();
-
-//   let post_title = title.value.trim();
-//   let info = contents.value.trim();
-
-//   if (title && contents) {
-//     let response;
-//     let input = { post_title, contents: info };
-
-//     if (post_id === 0) {
-//       response = await fetch(`/api/blogs`, {
-//         method: "POST",
-//         body: JSON.stringify(input),
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       });
-//     } else {
-//       let updated_post = { ...input, id: post_id };
-
-//       response = await fetch(`/api/blogs`, {
-//         method: "PUT",
-//         body: JSON.stringify(updated_post),
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       });
-//     }
+//     const response = await fetch(`/api/blogs/${id}`, {
+//       method: "PUT",
+//     });
 
 //     if (response.ok) {
-//       document.location.replace("/dashboard");
+//       document.location.replace(`/blog/${blogId}`);
 //     } else {
-//       alert("Failed to create blog");
+//       alert("Failed to edit comment");
 //     }
 //   }
+// }
 // };
 
-// const delButtonHandler = async (event) => {
-//   if (event.target.matches(".delete-btn")) {
+// const deleteButtonHandler = async (event) => {
+//   if (event.target.matches(".del-btn")) {
 //     console.log(event.target)
 //   if (event.target.hasAttribute("data-id")) {
 //     const id = event.target.getAttribute("data-id");
@@ -88,20 +63,22 @@ document.querySelector('#comment-submit-button').addEventListener('click', submi
 //     });
 
 //     if (response.ok) {
-//       document.location.replace("/dashboard");
+//       document.location.replace(`/blog/${blogId}`);
 //     } else {
-//       alert("Failed to delete blog");
+//       alert("Failed to delete comment");
 //     }
 //   }
 // }
 // };
 
-// let edtBtn = document.querySelectorAll('.edit-btn')
+// let edtBtn = document.querySelectorAll('.edt-btn')
 // for (let i = 0; i < edtBtn.length; i++) {
-//   edtBtn[i].addEventListener("click", editButtonHandler);
+//   edtBtn[i].addEventListener("click", edtButtonHandler);
 // };
 
-// let delBtn = document.querySelectorAll('.delete-btn')
+// let delBtn = document.querySelectorAll('.del-btn')
 // for (let i = 0; i < delBtn.length; i++) {
-//   delBtn[i].addEventListener("click", delButtonHandler);
+//   delBtn[i].addEventListener("click", deleteButtonHandler);
 // };
+
+document.querySelector('#comment-submit-button').addEventListener('click', submitComment);
