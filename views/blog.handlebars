@@ -1,44 +1,41 @@
 <div class="text-center">
-  
+
   <h2>{{post_title}}</h2>
   <div id="blog" data-id="{{id}}">
     <p>{{contents}}</p>
 
     <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  </div>
 
-{{#if logged_in}}
-  </div>
-  <div class="form-group">
-    <label for="blog-commenting"></label>
-    <textarea
-      placeholder="Type your comment here..."
-      class="form-control comment"
-      id="comment"
-      rows="3"
-    ></textarea>
-  </div>
-  <div class="form-group">
-    <button id="comment-submit-button" class="btn btn-dark">
-      Comment on this blog!
-    </button>
-  </div>
+  {{#if logged_in}}
+    <div class="form-group">
+      <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here..." id="comment"></textarea>
+  <label for="floatingTextarea">Comments</label>
+</div>
+    </div>
+    <div class="form-group m-2">
+      <button id="comment-submit-button"type="button" class="btn btn-dark">Comment on this blog!</button>
+    </div>
   {{else}}
-  <p>Log in to add a comment!</p>
-{{/if}}
-  <br />
- 
-       
-{{#if blog.comments.length}}
-  {{#each blog.comments as |comment|}}
+    <p>Log in to add a comment!</p>
+  {{/if}}
+</div>
+<br />
+
+<div>
+  {{#each comments as |comment|}}
+  <div></div>
     <li class="list-group-item">
-      <p>{{comment}}</p>
-      <p>-{{user.name}} on 
-    {{format_date comments.date_created}}
-    </p>
-      </li>
+      <p>{{comment.comments}}</p>
+      <p>- {{comment.user.name}}
+        on
+        {{format_date date_created}}
+      </p>
+    </li>
   {{/each}}
-    {{/if}}
 
 </div>
+
 <script src="/js/dashboard.js"></script>
 <script scr="/js/comments.js"></script>
