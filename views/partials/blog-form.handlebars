@@ -1,27 +1,22 @@
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Blog:</h3>
+<div class="d-flex flex-row mb-3 p-3 m-3">
 
-    <form class="new-blog-form">
-      <div class="form-group">
-        <label for="blog-title">blog title:</label>
-        <input
+  <div class="card ">
+    <h5 class="card-header">Create a New Blog:</h5>
+    <div class="card-body">
+      <h5 class="card-title">Blog title:<input
           class="form-input"
           type="text"
           id="blog-title"
           name="blog-title"
-        />
-      </div>
-      <div class="form-group">
-        <label for="blog-contents">contents:</label>
-        <textarea
-          class="form-input"
-          id="blog-contents"
-          name="blog-contents"
-        ></textarea>
-      </div>
-      <div class="form-group">
-        <button class="submitBtn" class="btn btn-primary">Create</button>
-      </div>
-    </form>
+        /></h5>
+      <h5 for="blog-contents" class="card-body">Contents:</h5>
+      <textarea
+        style="width: 30rem;"
+        class="form-input"
+        id="blog-contents"
+        name="blog-contents"
+      ></textarea>
+      <button class="submitBtn btn btn-primary">Create</button>
+    </div>
   </div>
+</div>

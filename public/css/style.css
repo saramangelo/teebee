@@ -1,5 +1,9 @@
+* {
+  font-family: 'Share Tech Mono', monospace;
+}
+
 header, .blog:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ffff;
 }
 
 .no-button {
@@ -7,12 +11,13 @@ header, .blog:not(:last-child) {
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #1b89bc;
+  color: #60d63c;
   text-decoration: none;
   font-size: 100%;
 }
 
 .no-button:hover {
-  color: #065b83;
+  color: #159f00;
   text-decoration: underline;
 }
+
