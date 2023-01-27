@@ -44,6 +44,7 @@ const newFormHandler = async (event) => {
 
 const delButtonHandler = async (event) => {
   if (event.target.matches(".delete-btn")) {
+    console.log(event.target)
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
 
@@ -63,6 +64,7 @@ const delButtonHandler = async (event) => {
 const editButtonHandler = async (event) => {
   event.preventDefault();
   if (event.target.matches(".edit-btn")) {
+    console.log(event.target)
     if (event.target.hasAttribute("data-id")) {
       const id = event.target.getAttribute("data-id");
 
@@ -76,6 +78,12 @@ const editButtonHandler = async (event) => {
     }
   }
 };
+
+
+document.querySelector('.blog-link').addEventListener(function(){
+  window.location = this.find("a").attr("href"); 
+  return false;
+});
 
 document.querySelector(".submitBtn").addEventListener("click", newFormHandler);
 
