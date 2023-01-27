@@ -1,6 +1,6 @@
 <div class="text-center">
   <h2>{{name}}</h2>
-    <div id="blog" data-id="{{id}}"></div>
+  <div id="blog" data-id="{{id}}"></div>
   <p>{{contents}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
 
@@ -16,12 +16,13 @@
   <br />
 
   {{#each comments as |comment|}}
-    <p>{{comment.comments}}</p>
+    <li class="list-group-item">{{comments}}<p>-{{user.name}}</p><p
+      >{{format_date date_created}}</p></li>
   {{/each}}
- 
-    <button id="button" class="btn btn-dark">
-      Comment on this blog!
-    </button>
+
+  <button id="button" class="btn btn-dark">
+    Comment on this blog!
+  </button>
 
 </div>
 <script src="/js/comments.js"></script>
