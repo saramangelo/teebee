@@ -43,8 +43,7 @@ const newFormHandler = async (event) => {
 };
 
 const delButtonHandler = async (event) => {
-  if (event.target.matches(".delete-btn")) {
-    console.log(event.target)
+
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
 
@@ -57,14 +56,13 @@ const delButtonHandler = async (event) => {
     } else {
       alert("Failed to delete blog");
     }
-  }
+  
 }
 };
 
 const editButtonHandler = async (event) => {
   event.preventDefault();
-  if (event.target.matches(".edit-btn")) {
-    console.log(event.target)
+
     if (event.target.hasAttribute("data-id")) {
       const id = event.target.getAttribute("data-id");
 
@@ -76,7 +74,7 @@ const editButtonHandler = async (event) => {
       contents.value = data.contents;
       post_id = data.id;
     }
-  }
+  
 };
 
 
