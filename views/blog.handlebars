@@ -2,6 +2,9 @@
   <div id="blog" data-id="{{id}}"></div>
   <div class="card mx-auto" style="width: 60rem;">
     <div class="card-body">
+
+    
+
       <h5
         class="card-title badge bg-secondary text-wrap fs-3"
       >{{post_title}}</h5>
@@ -11,9 +14,11 @@
         {{format_date date_created}}</h6>
       <p class="card-text">{{contents}}</p>
     </div>
-  </div>
+  </div>  
+  
+  {{>comment-form}}
 
-  {{#if logged_in}}
+  {{!-- {{#if logged_in}}
     <div class="form-group mx-auto p-2" style="width: 30rem;">
       <div class="form-floating">
         <textarea
@@ -33,7 +38,7 @@
     </div>
   {{else}}
     <p class="fs-4 fw-bold">Log in to add a comment!</p>
-  {{/if}}
+  {{/if}} --}}
 </div>
 <br />
 
@@ -69,4 +74,4 @@
 </div>
 
 <script src="/js/dashboard.js"></script>
-<script scr="/js/comments.js"></script>
+<script src="/js/comments.js"></script>
