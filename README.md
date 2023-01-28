@@ -2,16 +2,19 @@
 ![Github license](https://img.shields.io/static/v1?label=License&message=MIT&color=brightgreen)
 
 ## Description 
-Teebee is a CMS-style blog site, where developers can publish their blog posts and comment on other developers’ posts as well.
+Teebee is a CMS-style blog site where developers can create, edit, and publish their blog posts and comment on other developers’ posts as well. This app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
-## Screenshot
-![]()
+## Screenshots
+![ss-1.png](./public/assets/images/ss-1.png)
+![ss-2.png](./public/assets/images/ss-2.png)
+![ss-3.png](./public/assets/images/ss-3.png)
+![ss-4.png](./public/assets/images/ss-4.png)
   
 ## Table of Contents
     
 - [teebee](#teebee)
   - [Description](#description)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -23,7 +26,7 @@ Teebee is a CMS-style blog site, where developers can publish their blog posts a
   - [Questions](#questions)
   
 ## Installation
-Clone the repository, run server on local host 3001.
+Enter ![]() in your web browser.
   
   
 ## Usage
@@ -76,22 +79,3 @@ N/A
 Reach me at the links below with additional questions:
 - Github: https://github.com/saramangelo
 - Email: saramangelo@gmail.com
-
-
-<!-- NOTES -->
-
-WHEN I enter a comment and click on the submit button while signed in
-THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
-WHEN I click on the dashboard option in the navigation
-THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
-WHEN I click on the button to add a new blog post
-THEN I am prompted to enter both a title and contents for my blog post
-WHEN I click on the button to create a new blog post
-THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-WHEN I click on one of my existing posts in the dashboard
-THEN I am able to delete or update my post and taken back to an updated dashboard
-<!-- ADD DELETE AND PUT ROUTES -->
-WHEN I click on the logout option in the navigation
-THEN I am signed out of the site
-WHEN I am idle on the site for more than a set time
-THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
