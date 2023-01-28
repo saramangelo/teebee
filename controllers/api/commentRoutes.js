@@ -2,7 +2,15 @@ const router = require("express").Router();
 const { Comments } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+router.get("/:id", withAuth, async (req, res) => {
+  try {
+    const commentsData = await Comments.findByPk({ where: { id: req.params.id } });
 
+    res.status(200).json(commentsData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', async (req, res) => {
   try {

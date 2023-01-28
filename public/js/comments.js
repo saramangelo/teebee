@@ -2,14 +2,16 @@ const submitComment = async (event) => {
   event.preventDefault();
   const comments = document.querySelector("#comment").value.trim();
   const blog_id = document.querySelector("#blog");
-  // let blogId = blog_id.getAttribute("data-id");
+  let blogId = blog_id.getAttribute("data-id");
+console.log('clicked')
 
+  if(comment) 
   if (event.target.matches("button")) {
-    console.log(comments);
+    console.log(comment);
 
     let input = JSON.stringify({
-      comments: comments,
-      blog_id,
+      comments,
+      blog_id: blogId
     });
 
     const response = await fetch(`/api/comments/`, {
@@ -21,8 +23,8 @@ const submitComment = async (event) => {
     });
 
     if (response.ok) {
-      // document.location.replace(`/blog/${blogId}`);
-      document.location.reload();
+      document.location.replace(`/blog/${blogId}`);
+      // document.location.reload();/
     } else {
       alert("Failed to add comment");
     }
@@ -89,5 +91,5 @@ for (let i = 0; i < deleteBtn.length; i++) {
 }
 
 document
-  .querySelector("button", "#comment-submit-button")
+  .querySelector("#comment-submit-button")
   .addEventListener("click", submitComment);
