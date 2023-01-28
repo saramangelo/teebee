@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { Comments } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+
+
 router.post('/', async (req, res) => {
   try {
     console.log(req.body)
@@ -17,22 +19,18 @@ router.post('/', async (req, res) => {
   }
 });
 
+
 // Edit comments (PUT)
 router.put("/:id", withAuth, async (req, res) => {
   try {
-    const commentsData = await Comments.update({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
+    const newComment = await Comments.update(req.body, { where: { id: req.body.id } });
 
-    if (!commentsData) {
+    if (!newComment) {
       res.status(404).json({ message: "No comments found with this id!" });
       return;
     }
 
-    res.status(200).json(commentsData);
+    res.status(200).json(newComment);
   } catch (err) {
     res.status(500).json(err);
   }
