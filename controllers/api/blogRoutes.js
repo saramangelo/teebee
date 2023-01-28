@@ -15,6 +15,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+
 router.get("/:id", withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findOne({ where: { id: req.params.id } });

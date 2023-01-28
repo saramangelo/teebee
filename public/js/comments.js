@@ -24,15 +24,15 @@ console.log('clicked')
 
     if (response.ok) {
       document.location.replace(`/blog/${blogId}`);
-      // document.location.reload();/
     } else {
       alert("Failed to add comment");
     }
   }
 };
 
-// edit/delete comments
 
+// edit comments
+// TODO: debug
 const edtButtonHandler = async (event) => {
   console.log("clicked");
   if (event.target.hasAttribute("data-id")) {
@@ -53,7 +53,6 @@ const edtButtonHandler = async (event) => {
 
       if (response.ok) {
         document.location.replace(`/blog/${id}`);
-        // document.location.reload();
       } else {
         alert("Failed to add comment");
       }
@@ -61,6 +60,8 @@ const edtButtonHandler = async (event) => {
   }
 };
 
+// delete comments
+// TODO: debug
 const deleteButtonHandler = async (event) => {
   console.log("clicked");
   if (event.target.hasAttribute("data-id")) {
@@ -72,7 +73,6 @@ const deleteButtonHandler = async (event) => {
 
       if (response.ok) {
         document.location.replace(`/blog/${id}`);
-        // document.location.reload();
       } else {
         alert("Failed to delete comment");
       }

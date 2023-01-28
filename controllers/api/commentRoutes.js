@@ -2,15 +2,16 @@ const router = require("express").Router();
 const { Comments } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.get("/:id", withAuth, async (req, res) => {
-  try {
-    const commentsData = await Comments.findByPk({ where: { id: req.params.id } });
+// TODO: Find out if this is required for PUT/DELETE COMMENTS
+// router.get("/:id", withAuth, async (req, res) => {
+//   try {
+//     const commentsData = await Comments.findByPk({ where: { id: req.params.id } });
 
-    res.status(200).json(commentsData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.status(200).json(commentsData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.post('/', async (req, res) => {
   try {
@@ -29,6 +30,7 @@ router.post('/', async (req, res) => {
 
 
 // Edit comments (PUT)
+// TODO: debug
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const newComment = await Comments.update(req.body, { where: { id: req.body.id } });
@@ -45,6 +47,7 @@ router.put("/:id", withAuth, async (req, res) => {
 });
 
 // Delete comments
+// TODO: debug
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const commentsData = await Comments.destroy({
