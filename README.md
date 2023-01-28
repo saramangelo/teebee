@@ -26,7 +26,7 @@ Teebee is a CMS-style blog site where developers can create, edit, and publish t
   - [Questions](#questions)
   
 ## Installation
-Enter ![]() in your web browser.
+Enter [this url](https://shielded-mountain-79544.herokuapp.com/) in your web browser.
   
   
 ## Usage
