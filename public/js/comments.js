@@ -74,7 +74,7 @@ const deleteButtonHandler = async (event) => {
       if (response.ok) {
         document.location.replace(`/blog/${id}`);
       } else {
-        alert("Failed to delete comment");
+        // alert("Failed to delete comment");
       }
     }
   }
