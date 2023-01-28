@@ -93,3 +93,4 @@ for (let i = 0; i < deleteBtn.length; i++) {
 document
   .querySelector("#comment-submit-button")
   .addEventListener("click", submitComment);
+ 
