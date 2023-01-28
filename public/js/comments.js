@@ -1,14 +1,15 @@
-const submitComment = async () => {
+const submitComment = async (event) => {
+  event.preventDefault();
   const comments = document.querySelector("#comment").value.trim();
   const blog_id = document.querySelector("#blog");
-  let blogId = blog_id.getAttribute("data-id");
+  // let blogId = blog_id.getAttribute("data-id");
 
-  if (comment) {
-    console.log(comment);
+  if (event.target.matches("button")) {
+    console.log(comments);
 
     let input = JSON.stringify({
-      comments,
-      blog_id: blogId,
+      comments: comments,
+      blog_id,
     });
 
     const response = await fetch(`/api/comments/`, {
@@ -33,16 +34,14 @@ const submitComment = async () => {
 const edtButtonHandler = async (event) => {
   console.log("clicked");
   if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute("data-id");
-    if (comment) {
-      console.log(comment);
-
+    const id = event.target.getAttribute('data-id');
+    if (event.target.matches("button")) {
       let updated_comment = {
-        ...comments,
-        blog_id: blogId,
+        comments: comments,
+        blog_id: id,
       };
 
-      const response = await fetch(`/api/comments/`, {
+      const response = await fetch(`/api/comments/${id}`, {
         method: "PUT",
         body: JSON.stringify(updated_comment),
         headers: {
@@ -51,8 +50,8 @@ const edtButtonHandler = async (event) => {
       });
 
       if (response.ok) {
-        // document.location.replace(`/blog/${id}`);
-        document.location.reload();
+        document.location.replace(`/blog/${id}`);
+        // document.location.reload();
       } else {
         alert("Failed to add comment");
       }
@@ -63,17 +62,18 @@ const edtButtonHandler = async (event) => {
 const deleteButtonHandler = async (event) => {
   console.log("clicked");
   if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute("data-id");
+    const id = event.target.getAttribute('data-id');
+    if (event.target.matches("button")) {
+      const response = await fetch(`/api/comments/${id}`, {
+        method: "DELETE",
+      });
 
-    const response = await fetch(`/api/blogs/${id}`, {
-      method: "DELETE",
-    });
-
-    if (response.ok) {
-      // document.location.replace(`/blog${id}`);
-      document.location.reload();
-    } else {
-      alert("Failed to delete comment");
+      if (response.ok) {
+        document.location.replace(`/blog/${id}`);
+        // document.location.reload();
+      } else {
+        alert("Failed to delete comment");
+      }
     }
   }
 };
@@ -89,5 +89,5 @@ for (let i = 0; i < deleteBtn.length; i++) {
 }
 
 document
-  .querySelector("#comment-submit-button")
+  .querySelector("button", "#comment-submit-button")
   .addEventListener("click", submitComment);

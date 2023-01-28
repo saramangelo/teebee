@@ -1,5 +1,5 @@
 <div class="text-center">
-  <div id="blog" data-id="{{id}}"></div>
+  <div id="blog" data-id="{{id}}">
   <div class="card mx-auto" style="width: 60rem;">
     <div class="card-body">
       <h5
@@ -11,15 +11,37 @@
         {{format_date date_created}}</h6>
       <p class="card-text">{{contents}}</p>
     </div>
-  </div>  
-  
-  {{>comment-form}}
+    </div>
+  </div>
+
+  {{#if logged_in}}
+    <div class="form-group mx-auto p-2" style="width: 30rem;">
+      <div class="form-floating">
+        <input type="hidden" id="blog" id="comment" data-id="{{blog.id}}"/>
+        <textarea
+          class="form-control"
+          placeholder="Leave a comment here..."
+          id="comment"
+        ></textarea>
+        <label for="comment">Leave a comment here...</label>
+      </div>
+      <div class="form-group m-2 p-2">
+        <button
+          id="comment-submit-button"
+          type="button"
+          class="btn btn-dark"
+        >Comment on this blog!</button>
+      </div>
+
+    </div>
+
+  {{else}}
+    <p class="fs-4 fw-bold">Log in to add a comment!</p>
+  {{/if}}
 
 </div>
 
-
 <div>
-
 
   {{#each comments as |comment|}}
     <div class="card mx-auto m-2 p-2">
@@ -29,6 +51,7 @@
 
       <div>
         <h5 class="card-title"></h5>
+
         <div>
           <button
             class="btn btn-sm btn-warning edt-comment-btn"
@@ -39,6 +62,7 @@
             data-id="{{blog.id}}"
           >DELETE</button>
         </div>
+
       </div>
 
       <div class="card-body">
@@ -50,5 +74,4 @@
 
 </div>
 
-<script src="/js/dashboard.js"></script>
 <script src="/js/comments.js"></script>
