@@ -34,6 +34,12 @@ console.log('clicked')
 // edit comments
 // TODO: debug
 // let id = 0; ???
+// TRY:
+//     const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
+
+    //* put request to update blog data from dashboard
+    //* send fetch to 'api/blog/:id' in order to send through api route in blogs to update existing blog with same blog_id
+
 const edtButtonHandler = async (event) => {
   console.log("clicked");
   if (event.target.hasAttribute("data-id")) {
