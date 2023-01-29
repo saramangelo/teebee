@@ -33,6 +33,7 @@ console.log('clicked')
 
 // edit comments
 // TODO: debug
+// let id = 0; ???
 const edtButtonHandler = async (event) => {
   console.log("clicked");
   if (event.target.hasAttribute("data-id")) {
