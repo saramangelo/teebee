@@ -42,8 +42,9 @@ console.log('clicked')
 
 const edtButtonHandler = async (event) => {
   console.log("clicked");
-  if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute('data-id');
+  // if (event.target.hasAttribute("data-id")) {
+  //   const id = event.target.getAttribute('data-id');
+  const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
     if (event.target.matches("button")) {
       let updated_comment = {
         comments: comments,
@@ -64,8 +65,7 @@ const edtButtonHandler = async (event) => {
         alert("Failed to add comment");
       }
     }
-  }
-};
+  };
 
 // delete comments
 // TODO: debug
