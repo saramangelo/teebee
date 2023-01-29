@@ -48,6 +48,7 @@ const edtButtonHandler = async (event) => {
     if (event.target.matches("button")) {
       let updated_comment = {
         comments: comments,
+        // comments: comments.value?
         blog_id: id,
       };
 
