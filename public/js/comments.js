@@ -40,66 +40,66 @@ const submitComment = async (event) => {
     //* put request to update blog data from dashboard
     //* send fetch to 'api/blog/:id' in order to send through api route in blogs to update existing blog with same blog_id
 
-const edtButtonHandler = async (event) => {
-  event.preventDefault();
-  console.log("clicked");
-  const comments = document.querySelector("#comment").value.trim();
-  const id = event.target.getAttribute('data-id');
-  if (event.target.hasAttribute("data-id")) {
-  // const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
-    if (event.target.matches("button")) {
-      let updated_comment = {
-        // comments: comments,
-        comments: comments.value,
-        blogId: id,
-      };
+// const edtButtonHandler = async (event) => {
+//   event.preventDefault();
+//   console.log("clicked");
+//   const comments = document.querySelector("#comment").value.trim();
+//   const id = event.target.getAttribute('data-id');
+//   if (event.target.hasAttribute("data-id")) {
+//   // const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
+//     if (event.target.matches("button")) {
+//       let updated_comment = {
+//         // comments: comments,
+//         comments: comments.value,
+//         blogId: id,
+//       };
 
-      const response = await fetch(`/api/comments/${id}`, {
-        method: "PUT",
-        body: JSON.stringify(updated_comment),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+//       const response = await fetch(`/api/comments/${id}`, {
+//         method: "PUT",
+//         body: JSON.stringify(updated_comment),
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       });
 
-      if (response.ok) {
-        document.location.replace(`/blog/${id}`);
-      } else {
-        alert("Failed to edit comment");
-      }
-    }
-  }
-};
+//       if (response.ok) {
+//         document.location.replace(`/blog/${id}`);
+//       } else {
+//         alert("Failed to edit comment");
+//       }
+//     }
+//   }
+// };
 
-// delete comments
-// TODO: debug
-const deleteButtonHandler = async (event) => {
-  console.log("clicked");
-  if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute('data-id');
-    if (event.target.matches("button")) {
-      const response = await fetch(`/api/comments/${id}`, {
-        method: "DELETE",
-      });
+// // delete comments
+// // TODO: debug
+// const deleteButtonHandler = async (event) => {
+//   console.log("clicked");
+//   if (event.target.hasAttribute("data-id")) {
+//     const id = event.target.getAttribute('data-id');
+//     if (event.target.matches("button")) {
+//       const response = await fetch(`/api/comments/${id}`, {
+//         method: "DELETE",
+//       });
 
-      if (response.ok) {
-        document.location.replace(`/blog/${id}`);
-      } else {
-        // alert("Failed to delete comment");
-      }
-    }
-  }
-};
+//       if (response.ok) {
+//         document.location.replace(`/blog/${id}`);
+//       } else {
+//         // alert("Failed to delete comment");
+//       }
+//     }
+//   }
+// };
 
-let editBtn = document.querySelectorAll(".edt-comment-btn");
-for (let i = 0; i < editBtn.length; i++) {
-  editBtn[i].addEventListener("click", edtButtonHandler);
-}
+// let editBtn = document.querySelectorAll(".edt-comment-btn");
+// for (let i = 0; i < editBtn.length; i++) {
+//   editBtn[i].addEventListener("click", edtButtonHandler);
+// }
 
-let deleteBtn = document.querySelectorAll(".del-comment-btn");
-for (let i = 0; i < deleteBtn.length; i++) {
-  deleteBtn[i].addEventListener("click", deleteButtonHandler);
-}
+// let deleteBtn = document.querySelectorAll(".del-comment-btn");
+// for (let i = 0; i < deleteBtn.length; i++) {
+//   deleteBtn[i].addEventListener("click", deleteButtonHandler);
+// }
 
 document
   .querySelector("#comment-submit-button")
