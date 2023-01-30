@@ -1,14 +1,14 @@
 const submitComment = async (event) => {
-  event.preventDefault();
   const comments = document.querySelector("#comment").value.trim();
   const blog_id = document.querySelector("#blog");
   let blogId = blog_id.getAttribute("data-id");
-console.log('clicked')
-
-  if(comment) 
+  event.preventDefault();
+  console.log('clicked')
+  
+  if(comments) 
   if (event.target.matches("button")) {
-    console.log(comment);
-
+    console.log(comments);
+    
     let input = JSON.stringify({
       comments,
       blog_id: blogId
@@ -41,15 +41,17 @@ console.log('clicked')
     //* send fetch to 'api/blog/:id' in order to send through api route in blogs to update existing blog with same blog_id
 
 const edtButtonHandler = async (event) => {
+  event.preventDefault();
   console.log("clicked");
-  // if (event.target.hasAttribute("data-id")) {
-  //   const id = event.target.getAttribute('data-id');
-  const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
+  const comments = document.querySelector("#comment").value.trim();
+  const id = event.target.getAttribute('data-id');
+  if (event.target.hasAttribute("data-id")) {
+  // const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1]
     if (event.target.matches("button")) {
       let updated_comment = {
-        comments: comments,
-        // comments: comments.value?
-        blog_id: id,
+        // comments: comments,
+        comments: comments.value,
+        blogId: id,
       };
 
       const response = await fetch(`/api/comments/${id}`, {
@@ -63,10 +65,11 @@ const edtButtonHandler = async (event) => {
       if (response.ok) {
         document.location.replace(`/blog/${id}`);
       } else {
-        alert("Failed to add comment");
+        alert("Failed to edit comment");
       }
     }
-  };
+  }
+};
 
 // delete comments
 // TODO: debug
